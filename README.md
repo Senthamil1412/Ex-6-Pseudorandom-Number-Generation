@@ -22,27 +22,29 @@ RAND_MAX is a constant defined in stdlib.h and represents the maximum value rand
 #include <stdlib.h>
 #include <time.h>
 
-int main() {
-    // Seed the random number generator with the current time
-    srand(time(0));
-
-    // Generate and print 5 pseudorandom numbers between 0 and RAND_MAX
-    for (int i = 0; i < 5; i++) {
-        int randomNumber = rand();  // Generates a random number
-        printf("Random number %d: %d\n", i + 1, randomNumber);
+int main() 
+{
+    int count, min, max;
+    printf("Enter the number of random numbers to generate: ");
+    scanf("%d", &count);
+    printf("Enter the minimum value: ");
+    
+    scanf("%d", &min);
+    printf("Enter the maximum value: ");
+    scanf("%d", &max);
+    srand(time(NULL));
+    printf("Pseudorandom numbers:\n");   
+    for (int i = 0; i < count; i++) 
+    {
+        int random_number = (rand() % (max - min + 1)) + min;
+        printf("%d\n", random_number);
     }
+    
 
-    // Generate a random number in a specific range (e.g., between 1 and 100)
-    int lower = 1, upper = 100;
-    int randomInRange = (rand() % (upper - lower + 1)) + lower;
-    printf("Random number in range [%d, %d]: %d\n", lower, upper, randomInRange);
-
-    return 0;
-}
 
 ```
 ## Output:
-![Screenshot 2024-10-03 155755](https://github.com/user-attachments/assets/d01b9128-3968-4bd1-9136-a562efdc7b7b)
+![Screenshot 2024-10-14 083858](https://github.com/user-attachments/assets/7ee057e2-4e51-4d15-af99-db8bfd264a56)
 
 ## Result:
 Implementation of Pseudorandom Number Generation Using Standard library is successfully completed.
